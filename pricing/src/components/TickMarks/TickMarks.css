@@ -1,0 +1,10 @@
+.tickMark {
+    display: flex;
+}
+
+.checkedItems {
+    display: grid;
+    padding: 20px;
+}
+
+

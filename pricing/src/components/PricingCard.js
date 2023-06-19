@@ -1,12 +1,11 @@
 import React from "react";
+import "../components/PricingCards.css";
 
-const PricingCard = () => {
+const PricingCard = (props) => {
     return(
-        <div className="PricingApp">
-            <div className="app-container">
-                <h1>Pricing plans</h1>
-            </div>
-            
+        <div className="Names">
+            <h3>{props.name}</h3>
+            <p>{props.subName}</p>
         </div>
     )
 }
