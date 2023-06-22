@@ -5,6 +5,7 @@ import { useState } from "react";
 
 function App() {
   const [showResults, setShowResults] = useState(true)
+  const [totalValue, setTotalValue] = useState(0)
 
   // const onClick = () => {console.log("hello")}
 
@@ -17,6 +18,18 @@ function App() {
     setShowResults(true)
   }
 
+  const changePriceValueBasic = () => {
+    setTotalValue(499)
+  }
+
+  const changePriceValueHD = () => {
+    setTotalValue(699)
+  }
+
+  const changePriceValue4k = () => {
+    setTotalValue(999)
+  }
+
   const [popup,setPop]=useState(false)
   const handleClickOpen=()=>{
       setPop(!popup)
@@ -24,11 +37,6 @@ function App() {
   const closePopup=()=>{
       setPop(false)
   }
-
-  // function upiDisplay() {
-  //   console.log("display none")
-  // }
-
 
   return (
     <>
@@ -79,7 +87,7 @@ function App() {
 </section>
 
   <section className='pricingButtons'>
-    <div class="cardButton">
+    <div class="cardButton" onClick={changePriceValueBasic}>
       <input type='radio' name='pricing' id='card1' />
       <label for="card1">
         <h5>Mobile</h5>
@@ -91,7 +99,7 @@ function App() {
       </label>
     </div>
 
-    <div class="cardButton">
+    <div class="cardButton" onClick={changePriceValueHD}>
       <input type='radio' name='pricing' id='card2' />
       <label for="card2">
         <h5>Premium HD</h5>
@@ -103,7 +111,7 @@ function App() {
       </label>
     </div>
 
-    <div class="cardButton">
+    <div class="cardButton"  onClick={changePriceValue4k}>
       <input type='radio' name='pricing' id='card3' />
       <label for="card3">
         <h5>Premium 4k</h5>
@@ -147,7 +155,7 @@ function App() {
             </div>
 
             <div id='tColorB' style={{color: "Black", padding: "10px"}}>
-              Internet banks
+                Internet banks
             </div>
 
             <div onClick={OnClickUpi} id='tColorC' style={{color: "Black"}}>
@@ -205,7 +213,7 @@ function App() {
                   required maxLength={"5"}/>
                 </div>
               </div>
-              <button>PAY NOW</button>
+              <button><h5>PAY NOW</h5></button>
             </form>
           </div>: ""
         }
@@ -214,10 +222,14 @@ function App() {
         
           <div className='upiPaymentDiv'>
             <input className='upiPayment' type="text" placeholder='123456789@ybl'/>
-            <button>Submit</button>
+            <button><h5>Submit</h5></button>
           </div>
         }
 
+        </div>
+        <div className='FinalValue'>
+          <p>Total Value:</p>
+          <label>{totalValue}/-</label>
         </div>
         </div>  
   </section>

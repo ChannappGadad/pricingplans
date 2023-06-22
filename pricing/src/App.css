@@ -343,8 +343,13 @@ button {
   width: 100%;
   border: none;
   height: 50px;
-  border-radius: 3px;
+  border-radius: 8px;
+  background-color: rgb(85, 85, 198);
+  cursor: pointer;
+}
 
+h5 {
+  color: rgb(255, 254, 254);
 }
 
 .upiPayment{
@@ -365,4 +370,20 @@ button {
 
 .upiPayment button {
   padding-bottom: 10px;
+}
+
+.FinalValue {
+  width: 200px;
+}
+
+.FinalValue p {
+  padding-top: 20%;
+  color: red;
+  font-size: 30px
+}
+
+.FinalValue label {
+  padding-top: 1%;
+  color: red;
+  font-size: 40px
 }
