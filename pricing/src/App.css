@@ -295,6 +295,7 @@ input {
   border-radius: 3px;
   outline: none;
   width: 150px;
+  height: 30px;
 }
 
 .c-details {

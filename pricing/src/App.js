@@ -146,7 +146,7 @@ function App() {
               Payment by Card
             </div>
 
-            <div onClick={""} id='tColorB' style={{color: "Black", padding: "10px"}}>
+            <div id='tColorB' style={{color: "Black", padding: "10px"}}>
               Internet banks
             </div>
 
@@ -199,9 +199,9 @@ function App() {
 
               <div className='c-email'>
                 <div>
-                  <p>Email</p>
-                  <input type='email' 
-                  id="email" placeholder='example@email.com' 
+                  <p>Card Name</p>
+                  <input type='text' 
+                  id="text" placeholder='Card Name' 
                   required maxLength={"5"}/>
                 </div>
               </div>
