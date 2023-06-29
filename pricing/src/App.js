@@ -38,6 +38,56 @@ function App() {
       setPop(false)
   }
 
+  const loadScript = (src) => {
+    return new Promise((resovle) => {
+      const script = document.createElement("script");
+      script.src = src;
+
+      script.onload = () => {
+        resovle(true);
+        alert("Will be redirected to the payment page")
+      };
+
+      script.onerror = () => {
+        resovle(false);
+      };
+
+      document.body.appendChild(script);
+    });
+  };
+
+ const displayRazorPay = async (amount) => {
+    const res = await loadScript(
+      "https://checkout.razorpay.com/v1/checkout.js"
+    );
+
+    if (!res) {
+      alert("You are offline... Failed to load Razorpay SDK");
+      return;
+    }
+
+    const options = {
+      key: "rzp_test_rURRdayivQS2yt",
+      currency: "INR",
+      amount: amount * 100,
+      name: "pricing plans for Netflix",
+      description: "Thanks for purchasing",
+      image:
+        "https://mern-blog-akky.herokuapp.com/static/media/logo.8c649bfa.png",
+
+      handler: function (response) {
+        alert(response.razorpay_payment_id);
+        alert("Payment Successfully");
+      },
+      prefill: {
+        name: "code with akky",
+      },
+    };
+    const paymentObject = new window.Razorpay(options);
+    paymentObject.open();
+
+  }
+
   return (
     <>
 <section class="container">
@@ -125,7 +175,7 @@ function App() {
   </section>
 
   <section className='applyCode'>
-    <button onClick={handleClickOpen}><h5>Apply Code</h5></button>
+    <button onClick={() => displayRazorPay(totalValue)}><h5>Pay</h5></button>
     <div>
                 {
                     popup?
@@ -143,7 +193,7 @@ function App() {
                 }
             </div>
   </section>
-
+{/* 
   <section>
       <div className='conatains'>
         <div className='left'>
@@ -180,7 +230,6 @@ function App() {
         {
           showResults? 
           <div className="card-details">
-          {/* card-details */}
             <form>
               <p>Card number</p>
               <div className='c-number' id='c-number'>
@@ -232,7 +281,7 @@ function App() {
           <label>{totalValue}/-</label>
         </div>
         </div>  
-  </section>
+  </section> */}
     </>
     );
 }
